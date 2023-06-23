@@ -1,17 +1,26 @@
 package ru.kazanexpress.enams;
 
 public enum Catalog {
-	Электроника,
+	ELECTRONICS("Электроника"),
 
-	Одежда,
+	APPLIANCES("Бытовая техника"),
 
-	Обувь,
+	CLOTH("Одежда"),
 
-	Аксессуары,
+	SHOES("Обувь"),
 
-	Красота,
+	ACCESSORIES("Аксессуары"),
 
-	Здоровье;
+	BEAUTY("Красота"),
 
+	HEALTH("Здоровье");
 
+	Catalog(String value) {
+		this.value = value;
+	}
+	private String value;
+
+	public String getValue() {
+		return value;
+	}
 }

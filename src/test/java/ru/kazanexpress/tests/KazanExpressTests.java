@@ -39,13 +39,13 @@ public class KazanExpressTests {
 
 	}
 
-	@EnumSource()
+	@EnumSource(Catalog.class)
 	@ParameterizedTest
 	public void displayingNameCatalogWhenGoIt(Catalog product) {
 		open("");
 		mainKazanexpressPage.clickCatalogButton();
-		mainKazanexpressPage.clickCatalogProduct(product.toString());
-		productPage.checkTitle(product.toString());
+		mainKazanexpressPage.clickCatalogProduct(product.getValue());
+		productPage.checkTitle(product.getValue());
 	}
 
 	@ParameterizedTest
