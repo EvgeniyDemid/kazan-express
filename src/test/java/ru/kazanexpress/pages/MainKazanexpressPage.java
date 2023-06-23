@@ -1,12 +1,10 @@
-package ru.kazanexpress.pages.components;
+package ru.kazanexpress.pages;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import ru.kazanexpress.enams.Catalog;
 
-import java.lang.module.Configuration;
-
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -16,7 +14,7 @@ public class MainKazanexpressPage {
 	SelenideElement
 			loginButton = $("div[data-test-id='button__auth']"),
 			catalogButton = $("button[class='ui-component ui-button mark-accent show-catalog small']"),
-			selectcityButton = $("p[class='region regular hug']"),
+			selectCityButton = $("p[class='region regular hug']"),
 			category = $(".desktop-wrapper");
 
 	ElementsCollection catalogProducts = $$("ul[class='parent-categories smart-hover'] span");
@@ -31,11 +29,11 @@ public class MainKazanexpressPage {
 	}
 
 	public void clickCatalogProduct(String product) {
-		catalogProducts.shouldBe(sizeGreaterThan(1)).find(text(product)).click();
+		catalogProducts.shouldBe(CollectionCondition.sizeGreaterThan(1)).find(text(product)).click();
 	}
 
 	public void clickCity() {
-		selectcityButton.click();
+		selectCityButton.click();
 	}
 
 	public void clickNewCity(String city) {
@@ -43,9 +41,10 @@ public class MainKazanexpressPage {
 	}
 
 	public void checkCity(String city) {
-		selectcityButton.shouldHave(text(city));
+		selectCityButton.shouldHave(text(city));
 	}
-	public void checkCubCategory(String cubCategory){
+
+	public void checkCubCategory(String cubCategory) {
 		category.shouldHave(text(cubCategory));
 	}
 }

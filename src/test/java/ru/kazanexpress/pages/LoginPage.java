@@ -1,4 +1,4 @@
-package ru.kazanexpress.pages.components;
+package ru.kazanexpress.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
